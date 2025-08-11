@@ -1,10 +1,13 @@
 {
-  "name": "sendpulse-api",
+  "name": "@helveg/sendpulse-api",
   "version": "1.1.7",
   "description": "A simple SendPulse REST client library and example for Node.js",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^1.11.0"
   },
   "repository": {
     "type": "git",
