@@ -1,30 +1,37 @@
 ![Node.js Package](https://github.com/sendpulse/sendpulse-rest-api-node.js/workflows/Node.js%20Package/badge.svg?event=release)
 
-# SendPulse-rest-api-node.js
-A simple SendPulse REST client library and example for Node.js
+# SendPulse.js
 
-API Documentation [https://sendpulse.com/api](https://sendpulse.com/api)
+A SendPulse REST API client compatible with Node.js and browsers.
+
+This package supports all the operations documented in the [SendPulse API Documentation](https://sendpulse.com/api).
 
 ### Install
 
+Available for TypeScript, ESM, and CommonJS.
+
 ```
-npm install sendpulse-api
+npm install sendpulse-client
 ```
 
 ### Usage
 
-```javascript
-var sendpulse = require("sendpulse-api");
-/*
- * https://login.sendpulse.com/settings/#api
- */
-var API_USER_ID = "USER_ID";
-var API_SECRET = "USER_SECRET";
-var TOKEN_STORAGE = "/tmp/";
+#### ESM/TypeScript
 
-sendpulse.init(API_USER_ID,API_SECRET,TOKEN_STORAGE,function() {
-    sendpulse.listAddressBooks(console.log);
-});
+```typescript
+import { SendPulseClient } from "sendpulse-client";
+
+const client = new SendPulseClient("your-client-id", "your-client-secret");
+
+console.log(await client.listAddressBooks());
 ```
 
-You can get full list of API library methods in [example](https://github.com/sendpulse/sendpulse-rest-api-node.js/blob/master/example.js)
+#### CommonJS
+
+```javascript
+const SendPulseClient = require("sendpulse-client");
+
+new SendPulseClient("your-client-id", "your-client-secret").then(addressBooks => {
+    console.log(addressBooks);
+})
+```
